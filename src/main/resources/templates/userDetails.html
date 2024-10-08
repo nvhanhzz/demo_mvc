@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Details</title>
+    <style>
+        /* CSS cho trang chi tiết người dùng */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .detail-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            margin-bottom: 15px;
+        }
+
+        .detail-item label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .detail-item span {
+            display: block;
+            margin-top: 5px;
+            color: #777;
+        }
+
+        .actions {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-button {
+            background-color: #6c757d;
+        }
+
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+<div class="detail-container">
+    <h1>User Details</h1>
+
+    <div class="detail-item">
+        <label>Username:</label>
+        <span th:text="${user.username}">john_doe</span>
+    </div>
+
+    <div class="detail-item">
+        <label>Email:</label>
+        <span th:text="${user.email}">john@example.com</span>
+    </div>
+
+    <div class="detail-item">
+        <label>Status:</label>
+        <span th:text="${user.status}">active</span>
+    </div>
+
+    <div class="detail-item">
+        <label>Role ID:</label>
+        <span th:text="${user.roleId}">2</span>
+    </div>
+
+    <div class="actions">
+        <a th:href="@{/user/{userId}/edit(userId=${user.id})}">
+            <button>Edit</button>
+        </a>
+        <a th:href="@{/user}">
+            <button class="back-button">Back to List</button>
+        </a>
+    </div>
+</div>
+</body>
+</html>
